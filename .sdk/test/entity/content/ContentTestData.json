@@ -1,0 +1,41 @@
+{
+  "existing": {
+    "content": {
+      "CONTENT00": {
+        "content_id": "CONTENT01",
+        "description": "s33",
+        "metadata": {},
+        "title": "s35",
+        "token": "s36",
+        "id": "CONTENT00"
+      },
+      "CONTENT01": {
+        "content_id": "CONTENT01",
+        "description": "s65",
+        "metadata": {},
+        "title": "s67",
+        "token": "s68",
+        "id": "CONTENT01"
+      },
+      "CONTENT02": {
+        "content_id": "CONTENT01",
+        "description": "s97",
+        "metadata": {},
+        "title": "s99",
+        "token": "s9a",
+        "id": "CONTENT02"
+      }
+    }
+  },
+  "new": {
+    "content": {
+      "content_ref01": {
+        "content_id": "CONTENT01",
+        "description": "sc9",
+        "metadata": {},
+        "title": "scb",
+        "token": "scc"
+      }
+    }
+  }
+}

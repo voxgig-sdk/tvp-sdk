@@ -1,0 +1,25 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      auth: false
+      contact: {
+        url: "https://github.com/l0v3m0n3y/tvp"
+      }
+      description: "The TVP API provides access to information about programs, TV schedules, and details about shows and TV stars on the official Polish Television website. Users can retrieve content information and related data programmatically."
+      servers: [
+        {
+          description: "TVP API Production Server"
+          url: "https://api.tvp.pl"
+        }
+      ]
+      summary: "The TVP API provides access to information about programs, TV schedules, and details about shows and TV stars on the official Polish Television website."
+      title: "TVP API"
+      version: "1.0.0"
+      website: "https://github.com/l0v3m0n3y/tvp"
+    }
+  }
+}
+

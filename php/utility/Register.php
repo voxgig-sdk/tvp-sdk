@@ -1,0 +1,67 @@
+<?php
+declare(strict_types=1);
+
+// Tvp SDK utility registration
+
+require_once __DIR__ . '/../core/UtilityType.php';
+require_once __DIR__ . '/Clean.php';
+require_once __DIR__ . '/Done.php';
+require_once __DIR__ . '/MakeError.php';
+require_once __DIR__ . '/FeatureAdd.php';
+require_once __DIR__ . '/FeatureHook.php';
+require_once __DIR__ . '/FeatureInit.php';
+require_once __DIR__ . '/Fetcher.php';
+require_once __DIR__ . '/MakeFetchDef.php';
+require_once __DIR__ . '/MakeContext.php';
+require_once __DIR__ . '/MakeOptions.php';
+require_once __DIR__ . '/MakeRequest.php';
+require_once __DIR__ . '/MakeResponse.php';
+require_once __DIR__ . '/MakeResult.php';
+require_once __DIR__ . '/MakePoint.php';
+require_once __DIR__ . '/MakeSpec.php';
+require_once __DIR__ . '/MakeUrl.php';
+require_once __DIR__ . '/Param.php';
+require_once __DIR__ . '/PrepareAuth.php';
+require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/PrepareHeaders.php';
+require_once __DIR__ . '/PrepareMethod.php';
+require_once __DIR__ . '/PrepareParams.php';
+require_once __DIR__ . '/PreparePath.php';
+require_once __DIR__ . '/PrepareQuery.php';
+require_once __DIR__ . '/ResultBasic.php';
+require_once __DIR__ . '/ResultBody.php';
+require_once __DIR__ . '/ResultHeaders.php';
+require_once __DIR__ . '/TransformRequest.php';
+require_once __DIR__ . '/TransformResponse.php';
+
+TvpUtility::setRegistrar(function (TvpUtility $u): void {
+    $u->clean = [TvpClean::class, 'call'];
+    $u->done = [TvpDone::class, 'call'];
+    $u->make_error = [TvpMakeError::class, 'call'];
+    $u->feature_add = [TvpFeatureAdd::class, 'call'];
+    $u->feature_hook = [TvpFeatureHook::class, 'call'];
+    $u->feature_init = [TvpFeatureInit::class, 'call'];
+    $u->fetcher = [TvpFetcher::class, 'call'];
+    $u->make_fetch_def = [TvpMakeFetchDef::class, 'call'];
+    $u->make_context = [TvpMakeContext::class, 'call'];
+    $u->make_options = [TvpMakeOptions::class, 'call'];
+    $u->make_request = [TvpMakeRequest::class, 'call'];
+    $u->make_response = [TvpMakeResponse::class, 'call'];
+    $u->make_result = [TvpMakeResult::class, 'call'];
+    $u->make_point = [TvpMakePoint::class, 'call'];
+    $u->make_spec = [TvpMakeSpec::class, 'call'];
+    $u->make_url = [TvpMakeUrl::class, 'call'];
+    $u->param = [TvpParam::class, 'call'];
+    $u->prepare_auth = [TvpPrepareAuth::class, 'call'];
+    $u->prepare_body = [TvpPrepareBody::class, 'call'];
+    $u->prepare_headers = [TvpPrepareHeaders::class, 'call'];
+    $u->prepare_method = [TvpPrepareMethod::class, 'call'];
+    $u->prepare_params = [TvpPrepareParams::class, 'call'];
+    $u->prepare_path = [TvpPreparePath::class, 'call'];
+    $u->prepare_query = [TvpPrepareQuery::class, 'call'];
+    $u->result_basic = [TvpResultBasic::class, 'call'];
+    $u->result_body = [TvpResultBody::class, 'call'];
+    $u->result_headers = [TvpResultHeaders::class, 'call'];
+    $u->transform_request = [TvpTransformRequest::class, 'call'];
+    $u->transform_response = [TvpTransformResponse::class, 'call'];
+});

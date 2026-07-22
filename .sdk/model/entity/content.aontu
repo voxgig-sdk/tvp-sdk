@@ -1,0 +1,84 @@
+# Entity: content
+
+main: kit: entity: content: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "content_id"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "description"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "metadata"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "title"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "token"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "content"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: 93573158
+                kind: "param"
+                name: "content_id"
+                orig: "content_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/tokenizer/token/{content_id}"
+          parts: [
+            "tokenizer"
+            "token"
+            "{content_id}"
+          ]
+          select: {
+            exist: [
+              "content_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "token"
+      ]
+    ]
+  }
+
+
+
+}

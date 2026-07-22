@@ -1,0 +1,136 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "TVP API",
+    "description": "The TVP API provides access to information about programs, TV schedules, and details about shows and TV stars on the official Polish Television website. Users can retrieve content information and related data programmatically.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://github.com/l0v3m0n3y/tvp"
+    }
+  },
+  "externalDocs": {
+    "description": "API Documentation",
+    "url": "https://github.com/l0v3m0n3y/tvp"
+  },
+  "servers": [
+    {
+      "url": "https://api.tvp.pl",
+      "description": "TVP API Production Server"
+    }
+  ],
+  "paths": {
+    "/tokenizer/token/{content_id}": {
+      "get": {
+        "summary": "Get Content Info",
+        "description": "Retrieves information about a specific TV program or content using its content ID. Returns details about shows, programs, TV schedules, and related metadata from the Polish Television (TVP) platform.",
+        "operationId": "getContentInfo",
+        "tags": [
+          "Content"
+        ],
+        "parameters": [
+          {
+            "name": "content_id",
+            "in": "path",
+            "required": true,
+            "description": "The unique identifier for the TV content/program",
+            "schema": {
+              "type": "integer",
+              "format": "int64",
+              "example": 93573158
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with content information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "content_id": {
+                      "type": "integer",
+                      "description": "The unique identifier of the content",
+                      "example": 93573158
+                    },
+                    "title": {
+                      "type": "string",
+                      "description": "Title of the TV program or show"
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "Description of the content"
+                    },
+                    "token": {
+                      "type": "string",
+                      "description": "Access token for the content"
+                    },
+                    "metadata": {
+                      "type": "object",
+                      "description": "Additional metadata about the content",
+                      "additionalProperties": true
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid content ID format",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Invalid content_id parameter"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Content not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Content not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Internal server error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Content",
+      "description": "Operations related to TV content, programs, schedules, and show information"
+    }
+  ]
+}
