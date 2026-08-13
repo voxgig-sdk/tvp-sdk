@@ -7,11 +7,6 @@
 -- edit by hand.
 
 ---@class Content
----@field content_id? number
----@field description? string
----@field metadata? table
----@field title? string
----@field token? string
 
 ---@class ContentLoadMatch
 ---@field content_id number

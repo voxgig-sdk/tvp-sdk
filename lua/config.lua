@@ -23,43 +23,7 @@ local function make_config()
     },
     entity = {
       ["content"] = {
-        ["fields"] = {
-          {
-            ["active"] = true,
-            ["name"] = "content_id",
-            ["req"] = false,
-            ["type"] = "`$INTEGER`",
-            ["index$"] = 0,
-          },
-          {
-            ["active"] = true,
-            ["name"] = "description",
-            ["req"] = false,
-            ["type"] = "`$STRING`",
-            ["index$"] = 1,
-          },
-          {
-            ["active"] = true,
-            ["name"] = "metadata",
-            ["req"] = false,
-            ["type"] = "`$OBJECT`",
-            ["index$"] = 2,
-          },
-          {
-            ["active"] = true,
-            ["name"] = "title",
-            ["req"] = false,
-            ["type"] = "`$STRING`",
-            ["index$"] = 3,
-          },
-          {
-            ["active"] = true,
-            ["name"] = "token",
-            ["req"] = false,
-            ["type"] = "`$STRING`",
-            ["index$"] = 4,
-          },
-        },
+        ["fields"] = {},
         ["name"] = "content",
         ["op"] = {
           ["load"] = {
@@ -82,6 +46,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/tokenizer/token/{content_id}",
                 ["parts"] = {
@@ -96,7 +61,7 @@ local function make_config()
                 },
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.metadata`",
                 },
                 ["index$"] = 0,
               },

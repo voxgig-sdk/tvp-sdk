@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ TvpUtility::setRegistrar(function (TvpUtility $u): void {
     $u->prepare_params = [TvpPrepareParams::class, 'call'];
     $u->prepare_path = [TvpPreparePath::class, 'call'];
     $u->prepare_query = [TvpPrepareQuery::class, 'call'];
+    $u->graphql_body = [TvpGraphql::class, 'body'];
+    $u->graphql_errors = [TvpGraphql::class, 'errors'];
     $u->result_basic = [TvpResultBasic::class, 'call'];
     $u->result_body = [TvpResultBody::class, 'call'];
     $u->result_headers = [TvpResultHeaders::class, 'call'];

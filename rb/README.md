@@ -36,7 +36,7 @@ Content is nested under content, so provide the `content_id`.
 
 ```ruby
 begin
-  # load returns the bare Content record (raises on error).
+  # load returns the ENTITY — call data_get for the Content record (raises on error).
   content = client.Content.load({ "content_id" => 1 })
   puts content
 rescue => err
@@ -51,7 +51,7 @@ Entity operations raise on failure, so rescue them:
 
 ```ruby
 begin
-  content = client.Content.load()
+  content = client.Content.load({ "content_id" => 1 })
 rescue => err
   warn "load failed: #{err}"
 end
@@ -119,8 +119,9 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = TvpSDK.test
 
-# Entity ops return the bare mock record (raises on error).
-content = client.Content.load()
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
+content = client.Content.load({ "content_id" => 1 })
 puts content
 ```
 
@@ -236,11 +237,6 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `content_id` |  |
-| `description` |  |
-| `metadata` |  |
-| `title` |  |
-| `token` |  |
 
 Operations: Load.
 
@@ -261,20 +257,10 @@ Create an instance: `content = client.Content`
 | --- | --- |
 | `load(match)` | Load a single entity by match criteria. |
 
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `content_id` | `Integer` |  |
-| `description` | `String` |  |
-| `metadata` | `Hash` |  |
-| `title` | `String` |  |
-| `token` | `String` |  |
-
 #### Example: Load
 
 ```ruby
-# load returns the bare Content record (raises on error).
+# load returns the ENTITY — call data_get for the Content record (raises on error).
 content = client.Content.load({ "content_id" => 1 })
 ```
 
@@ -356,7 +342,7 @@ stores the returned data and match criteria internally.
 
 ```ruby
 content = client.Content
-content.load()
+content.load({ "content_id" => 1 })
 
 # content.data_get now returns the content data from the last load
 # content.match_get returns the last match criteria

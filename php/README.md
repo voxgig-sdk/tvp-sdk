@@ -37,7 +37,7 @@ Content is nested under content, so provide the `content_id`.
 
 ```php
 try {
-    // load() returns the bare Content record (throws on error).
+    // load() returns the ENTITY — call data_get() for the Content record (throws on error).
     $content = $client->Content()->load(["content_id" => 1]);
     print_r($content);
 } catch (\Throwable $err) {
@@ -53,7 +53,7 @@ Entity operations throw a `\Throwable` on failure, so wrap them in
 
 ```php
 try {
-    $content = $client->Content()->load();
+    $content = $client->Content()->load(["content_id" => 1]);
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -125,8 +125,9 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = TvpSDK::test();
 
-// Entity ops return the bare mock record (throws on error).
-$content = $client->Content()->load();
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
+$content = $client->Content()->load(["content_id" => 1]);
 print_r($content);
 ```
 
@@ -224,7 +225,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -246,11 +247,6 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `content_id` |  |
-| `description` |  |
-| `metadata` |  |
-| `title` |  |
-| `token` |  |
 
 Operations: Load.
 
@@ -271,20 +267,10 @@ Create an instance: `$content = $client->Content();`
 | --- | --- |
 | `load(match)` | Load a single entity by match criteria. |
 
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `content_id` | `int` |  |
-| `description` | `string` |  |
-| `metadata` | `array` |  |
-| `title` | `string` |  |
-| `token` | `string` |  |
-
 #### Example: Load
 
 ```php
-// load() returns the bare Content record (throws on error).
+// load() returns the ENTITY — call data_get() for the Content record (throws on error).
 $content = $client->Content()->load(["content_id" => 1]);
 ```
 
@@ -366,7 +352,7 @@ stores the returned data and match criteria internally.
 
 ```php
 $content = $client->Content();
-$content->load();
+$content->load(["content_id" => 1]);
 
 // $content->data_get() now returns the content data from the last load
 // $content->match_get() returns the last match criteria

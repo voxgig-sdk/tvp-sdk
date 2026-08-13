@@ -89,16 +89,6 @@ same parameters as `direct()`. Raises on error.
 content = client.Content
 ```
 
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `content_id` | `Integer` | No |  |
-| `description` | `String` | No |  |
-| `metadata` | `Hash` | No |  |
-| `title` | `String` | No |  |
-| `token` | `String` | No |  |
-
 ### Operations
 
 #### `load(reqmatch, ctrl = nil) -> result`

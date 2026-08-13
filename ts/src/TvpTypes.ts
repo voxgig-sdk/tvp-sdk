@@ -6,11 +6,6 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
 export interface Content {
-  content_id?: number
-  description?: string
-  metadata?: Record<string, any>
-  title?: string
-  token?: string
 }
 
 export interface ContentLoadMatch {

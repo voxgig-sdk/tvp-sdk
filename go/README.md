@@ -66,7 +66,7 @@ Every entity operation returns `(value, error)`. Check `err` before
 using the value — there is no exception to catch:
 
 ```go
-content, err := client.Content(nil).Load(nil, nil)
+content, err := client.Content(nil).Load(map[string]any{"content_id": 1}, nil)
 if err != nil {
     // handle err
     return
@@ -136,7 +136,7 @@ Create a mock client for unit testing — no server required:
 client := sdk.Test()
 
 content, err := client.Content(nil).Load(
-    nil, nil,
+    map[string]any{"content_id": 1}, nil,
 )
 if err != nil {
     panic(err)
@@ -258,11 +258,6 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"content_id"` |  |
-| `"description"` |  |
-| `"metadata"` |  |
-| `"title"` |  |
-| `"token"` |  |
 
 Operations: Load.
 
@@ -282,16 +277,6 @@ Create an instance: `content := client.Content(nil)`
 | Method | Description |
 | --- | --- |
 | `Load(match, ctrl)` | Load a single entity by match criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `content_id` | `int` |  |
-| `description` | `string` |  |
-| `metadata` | `map[string]any` |  |
-| `title` | `string` |  |
-| `token` | `string` |  |
 
 #### Example: Load
 
@@ -378,7 +363,7 @@ stores the returned data and match criteria internally.
 
 ```go
 content := client.Content(nil)
-content.Load(nil, nil)
+content.Load(map[string]any{"content_id": 1}, nil)
 
 // content.Data() now returns the content data from the last load
 // content.Match() returns the last match criteria

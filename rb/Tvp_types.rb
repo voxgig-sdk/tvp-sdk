@@ -9,29 +9,8 @@
 # annotations document the shapes. Do not edit by hand.
 
 # Content entity data model.
-#
-# @!attribute [rw] content_id
-#   @return [Integer, nil]
-#
-# @!attribute [rw] description
-#   @return [String, nil]
-#
-# @!attribute [rw] metadata
-#   @return [Hash, nil]
-#
-# @!attribute [rw] title
-#   @return [String, nil]
-#
-# @!attribute [rw] token
-#   @return [String, nil]
-Content = Struct.new(
-  :content_id,
-  :description,
-  :metadata,
-  :title,
-  :token,
-  keyword_init: true
-)
+class Content
+end
 
 # Request payload for Content#load.
 #

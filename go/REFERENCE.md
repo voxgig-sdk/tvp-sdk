@@ -94,16 +94,6 @@ content := client.Content(nil)
 fmt.Println(content.GetName()) // "content"
 ```
 
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `content_id` | `int` | No |  |
-| `description` | `string` | No |  |
-| `metadata` | `map[string]any` | No |  |
-| `title` | `string` | No |  |
-| `token` | `string` | No |  |
-
 ### Operations
 
 #### `Load(reqmatch, ctrl map[string]any) (any, error)`

@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ TvpUtility.registrar = ->(u) {
   u.prepare_params = TvpUtilities::PrepareParams
   u.prepare_path = TvpUtilities::PreparePath
   u.prepare_query = TvpUtilities::PrepareQuery
+  u.graphql_body = TvpUtilities::GraphqlBody
+  u.graphql_errors = TvpUtilities::GraphqlErrors
   u.result_basic = TvpUtilities::ResultBasic
   u.result_body = TvpUtilities::ResultBody
   u.result_headers = TvpUtilities::ResultHeaders

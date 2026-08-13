@@ -39,7 +39,7 @@ client = TvpSDK()
 ### 3. Load a content
 
 Content is nested under content, so provide the `content_id`.
-`load()` returns the bare record (a `dict`) and raises on error.
+`load()` returns the ENTITY — call data_get() for the record — and raises on error.
 
 ```python
 try:
@@ -56,7 +56,7 @@ Entity operations raise on failure, so wrap them in `try` / `except`:
 
 ```python
 try:
-    content = client.Content().load()
+    content = client.Content().load({"content_id": 1})
     print(content)
 except Exception as err:
     print(f"load failed: {err}")
@@ -123,8 +123,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = TvpSDK.test()
 
-# Entity ops return the bare record and raise on error.
-content = client.Content().load()
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
+content = client.Content().load({"content_id": 1})
 # content contains the mock response record
 ```
 
@@ -219,7 +220,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -241,11 +242,6 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `content_id` |  |
-| `description` |  |
-| `metadata` |  |
-| `title` |  |
-| `token` |  |
 
 Operations: Load.
 
@@ -265,16 +261,6 @@ Create an instance: `content = client.Content()`
 | Method | Description |
 | --- | --- |
 | `load(match)` | Load a single entity by match criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `content_id` | `int` |  |
-| `description` | `str` |  |
-| `metadata` | `dict` |  |
-| `title` | `str` |  |
-| `token` | `str` |  |
 
 #### Example: Load
 
@@ -359,7 +345,7 @@ stores the returned data and match criteria internally.
 
 ```python
 content = client.Content()
-content.load()
+content.load({"content_id": 1})
 
 # content.data_get() now returns the content data from the last load
 # content.match_get() returns the last match criteria

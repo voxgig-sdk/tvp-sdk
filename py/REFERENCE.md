@@ -83,16 +83,6 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 content = client.Content()
 ```
 
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `content_id` | `int` | No |  |
-| `description` | `str` | No |  |
-| `metadata` | `dict` | No |  |
-| `title` | `str` | No |  |
-| `token` | `str` | No |  |
-
 ### Operations
 
 #### `load(reqmatch, ctrl=None) -> dict`

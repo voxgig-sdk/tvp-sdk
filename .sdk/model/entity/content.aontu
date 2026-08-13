@@ -4,34 +4,6 @@ main: kit: entity: content: {
 
   alias: field: {}
 
-  fields: [
-    {
-      name: "content_id"
-      req: false
-      type: "`$INTEGER`"
-    }
-    {
-      name: "description"
-      req: false
-      type: "`$STRING`"
-    }
-    {
-      name: "metadata"
-      req: false
-      type: "`$OBJECT`"
-    }
-    {
-      name: "title"
-      req: false
-      type: "`$STRING`"
-    }
-    {
-      name: "token"
-      req: false
-      type: "`$STRING`"
-    }
-  ]
-
   name: "content"
   op: {
     load: {
@@ -64,7 +36,7 @@ main: kit: entity: content: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.metadata`"
           }
         }
       ]

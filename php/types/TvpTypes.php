@@ -15,11 +15,6 @@ declare(strict_types=1);
 /** Content entity data model. */
 class Content
 {
-    public ?int $content_id = null;
-    public ?string $description = null;
-    public ?array $metadata = null;
-    public ?string $title = null;
-    public ?string $token = null;
 }
 
 /** Request payload for Content#load. */

@@ -112,16 +112,6 @@ Alias for `TvpSDK.test()`.
 const content = client.Content()
 ```
 
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `content_id` | `number` | No |  |
-| `description` | `string` | No |  |
-| `metadata` | `Record<string, any>` | No |  |
-| `title` | `string` | No |  |
-| `token` | `string` | No |  |
-
 ### Operations
 
 #### `load(match: object, ctrl?: object)`

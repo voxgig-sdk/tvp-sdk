@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from tvp_sdk.utility.voxgig_struct import voxgig_struct as vs
 from tvp_sdk import TvpSDK
-from core import helpers
+from tvp_sdk.core import helpers
 from test import runner
 
 

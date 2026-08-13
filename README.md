@@ -23,7 +23,7 @@ support (`load`):
 
 ```ts
 const client = new TvpSDK()
-const content = await client.Content().load()
+const content = await client.Content().load({ content_id: 1 })
 ```
 
 Thinking in entities keeps the mental model small — for people and AI agents alike —
@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = TvpSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = TvpSDK.test({
+  entity: {
+    content: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const content = await client.Content().load({ content_id: 1 })
-// content is a bare Content populated with mock data
+// content is the Content entity, populated with mock data
+// — call content.data() for the record itself
 console.log(content)
 ```
 
@@ -185,7 +194,7 @@ require_once 'tvp_sdk.php';
 $client = new TvpSDK();
 
 
-// Load a specific content (returns the bare record; throws on error)
+// Load a specific content (returns the ENTITY; call data_get() for the record; throws on error)
 $content = $client->Content()->load(["content_id" => 1]);
 print_r($content);
 ```
@@ -216,7 +225,7 @@ require_relative "Tvp_sdk"
 client = TvpSDK.new
 
 
-# Load a specific content (returns the bare record; raises on error)
+# Load a specific content (returns the ENTITY; call data_get for the record)
 content = client.Content.load({ "content_id" => 1 })
 puts content
 ```
@@ -350,6 +359,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://github.com/l0v3m0n3y/tvp](https://github.com/l0v3m0n3y/tvp)
 

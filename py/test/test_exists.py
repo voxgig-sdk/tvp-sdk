@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# Tvp SDK exists test
 
 import pytest
 from tvp_sdk import TvpSDK

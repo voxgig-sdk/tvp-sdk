@@ -23,43 +23,7 @@ func MakeConfig() map[string]any {
 		},
 		"entity": map[string]any{
 			"content": map[string]any{
-				"fields": []any{
-					map[string]any{
-						"active": true,
-						"name": "content_id",
-						"req": false,
-						"type": "`$INTEGER`",
-						"index$": 0,
-					},
-					map[string]any{
-						"active": true,
-						"name": "description",
-						"req": false,
-						"type": "`$STRING`",
-						"index$": 1,
-					},
-					map[string]any{
-						"active": true,
-						"name": "metadata",
-						"req": false,
-						"type": "`$OBJECT`",
-						"index$": 2,
-					},
-					map[string]any{
-						"active": true,
-						"name": "title",
-						"req": false,
-						"type": "`$STRING`",
-						"index$": 3,
-					},
-					map[string]any{
-						"active": true,
-						"name": "token",
-						"req": false,
-						"type": "`$STRING`",
-						"index$": 4,
-					},
-				},
+				"fields": []any{},
 				"name": "content",
 				"op": map[string]any{
 					"load": map[string]any{
@@ -82,6 +46,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/tokenizer/token/{content_id}",
 								"parts": []any{
@@ -96,12 +61,11 @@ func MakeConfig() map[string]any {
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.metadata`",
 								},
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{

@@ -56,7 +56,7 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 
 ```ts
 try {
-  const content = await client.Content().load()
+  const content = await client.Content().load({ content_id: 1 })
   console.log(content)
 } catch (err) {
   console.error('load failed:', err)
@@ -123,8 +123,9 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = TvpSDK.test()
 
-const content = await client.Content().load()
-// content is a bare entity populated with mock response data
+const content = await client.Content().load({ content_id: 1 })
+// content is the entity, populated with mock response data
+// — call content.data() for the record itself
 console.log(content)
 ```
 
@@ -143,7 +144,7 @@ Entity instances remember their last match and data:
 const entity = client.Content()
 
 // First call runs the operation and stores its result
-await entity.load()
+await entity.load({ content_id: 1 })
 
 // Subsequent calls reuse the stored state
 const data = entity.data()
@@ -287,11 +288,6 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `content_id` |  |
-| `description` |  |
-| `metadata` |  |
-| `title` |  |
-| `token` |  |
 
 Operations: load.
 
@@ -311,16 +307,6 @@ Create an instance: `const content = client.Content()`
 | Method | Description |
 | --- | --- |
 | `load(match)` | Load a single entity by match criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `content_id` | `number` |  |
-| `description` | `string` |  |
-| `metadata` | `Record<string, any>` |  |
-| `title` | `string` |  |
-| `token` | `string` |  |
 
 #### Example: Load
 
@@ -399,7 +385,7 @@ calls on the same instance can rely on this state.
 
 ```ts
 const content = client.Content()
-await content.load()
+await content.load({ content_id: 1 })
 
 // content.data() now returns the content data from the last `load`
 // content.match() returns the last match criteria

@@ -16,11 +16,11 @@
 import pytest
 
 from tvp_sdk import TvpSDK
-from core.error import TvpError
-from core.result import TvpResult
-from core.response import TvpResponse
-from core.spec import TvpSpec
-from feature.base_feature import TvpBaseFeature
+from tvp_sdk.core.error import TvpError
+from tvp_sdk.core.result import TvpResult
+from tvp_sdk.core.response import TvpResponse
+from tvp_sdk.core.spec import TvpSpec
+from tvp_sdk.feature.base_feature import TvpBaseFeature
 
 
 def _client():

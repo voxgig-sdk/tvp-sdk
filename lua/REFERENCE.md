@@ -86,16 +86,6 @@ same parameters as `direct()`.
 local content = client:Content(nil)
 ```
 
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `content_id` | `number` | No |  |
-| `description` | `string` | No |  |
-| `metadata` | `table` | No |  |
-| `title` | `string` | No |  |
-| `token` | `string` | No |  |
-
 ### Operations
 
 #### `load(reqmatch, ctrl) -> any, err`

@@ -88,16 +88,6 @@ Prepare a fetch definition without sending the request. Returns the
 $content = $client->Content();
 ```
 
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `content_id` | `int` | No |  |
-| `description` | `string` | No |  |
-| `metadata` | `array` | No |  |
-| `title` | `string` | No |  |
-| `token` | `string` | No |  |
-
 ### Operations
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`

@@ -50,7 +50,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local content, err = client:Content():load()
+local content, err = client:Content():load({ content_id = 1 })
 if err then error(err) end
 ```
 
@@ -108,7 +108,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:Content():load()
+local result, err = client:Content():load({ content_id = 1 })
 -- result is the returned data; err is set on failure
 ```
 
@@ -227,11 +227,6 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `content_id` |  |
-| `description` |  |
-| `metadata` |  |
-| `title` |  |
-| `token` |  |
 
 Operations: Load.
 
@@ -251,16 +246,6 @@ Create an instance: `local content = client:Content(nil)`
 | Method | Description |
 | --- | --- |
 | `load(match)` | Load a single entity by match criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `content_id` | `number` |  |
-| `description` | `string` |  |
-| `metadata` | `table` |  |
-| `title` | `string` |  |
-| `token` | `string` |  |
 
 #### Example: Load
 
@@ -346,7 +331,7 @@ stores the returned data and match criteria internally.
 
 ```lua
 local content = client:Content()
-content:load()
+content:load({ content_id = 1 })
 
 -- content:data_get() now returns the content data from the last load
 -- content:match_get() returns the last match criteria
