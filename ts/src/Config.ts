@@ -36,7 +36,7 @@ class Config {
 
 
   options = {
-    base: 'https://api.tvp.pl',
+    base: "https://api.tvp.pl",
 
     headers: {
       "content-type": "application/json"
@@ -61,18 +61,15 @@ class Config {
           "name": "load",
           "points": [
             {
-              "active": true,
               "args": {
                 "params": [
                   {
-                    "active": true,
                     "example": 93573158,
                     "kind": "param",
                     "name": "content_id",
                     "orig": "content_id",
                     "reqd": true,
-                    "type": "`$INTEGER`",
-                    "index$": 0
+                    "type": "`$INTEGER`"
                   }
                 ]
               },
@@ -92,11 +89,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.metadata`"
-              },
-              "index$": 0
+              }
             }
-          ],
-          "key$": "load"
+          ]
         }
       },
       "relations": {

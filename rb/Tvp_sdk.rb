@@ -28,7 +28,7 @@ class TvpSDK
     utility = TvpUtility.new
     @_utility = utility
 
-    config = TvpConfig.make_config
+    config = TvpConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

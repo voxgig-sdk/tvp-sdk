@@ -40,7 +40,7 @@ class TvpSDK
         $utility = new TvpUtility();
         $this->_utility = $utility;
 
-        $config = TvpConfig::make_config();
+        $config = TvpConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,
