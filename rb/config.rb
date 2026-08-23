@@ -19,6 +19,9 @@ module TvpConfig
     {
       "main" => {
         "name" => "Tvp",
+        "slug" => "tvp",
+        "version" => "0.0.1",
+        "target" => "rb",
       },
       "feature" => {
         "test" => {
