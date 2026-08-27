@@ -28,6 +28,7 @@ module TvpConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {
