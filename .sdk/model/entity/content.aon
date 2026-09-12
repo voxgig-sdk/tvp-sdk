@@ -24,10 +24,16 @@ main: kit: entity: content: {
           }
           method: "GET"
           orig: "/tokenizer/token/{content_id}"
-          parts: [
-            "tokenizer"
-            "token"
-            "{content_id}"
+          segments: [
+            {
+              lit: "tokenizer"
+            }
+            {
+              lit: "token"
+            }
+            {
+              var: "content_id"
+            }
           ]
           select: {
             exist: [

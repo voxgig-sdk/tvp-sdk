@@ -79,10 +79,16 @@ class TvpConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/tokenizer/token/{content_id}',
-                  'parts' => [
-                    'tokenizer',
-                    'token',
-                    '{content_id}',
+                  'segments' => [
+                    [
+                      'lit' => 'tokenizer',
+                    ],
+                    [
+                      'lit' => 'token',
+                    ],
+                    [
+                      'var' => 'content_id',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -92,6 +98,11 @@ class TvpConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.metadata`',
+                  ],
+                  'parts' => [
+                    'tokenizer',
+                    'token',
+                    '{content_id}',
                   ],
                 ],
               ],

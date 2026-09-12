@@ -53,10 +53,16 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/tokenizer/token/{content_id}",
-                ["parts"] = {
-                  "tokenizer",
-                  "token",
-                  "{content_id}",
+                ["segments"] = {
+                  {
+                    ["lit"] = "tokenizer",
+                  },
+                  {
+                    ["lit"] = "token",
+                  },
+                  {
+                    ["var"] = "content_id",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -66,6 +72,11 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.metadata`",
+                },
+                ["parts"] = {
+                  "tokenizer",
+                  "token",
+                  "{content_id}",
                 },
               },
             },

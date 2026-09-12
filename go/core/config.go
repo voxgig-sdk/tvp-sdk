@@ -57,10 +57,16 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/tokenizer/token/{content_id}",
-								"parts": []any{
-									"tokenizer",
-									"token",
-									"{content_id}",
+								"segments": []any{
+									map[string]any{
+										"lit": "tokenizer",
+									},
+									map[string]any{
+										"lit": "token",
+									},
+									map[string]any{
+										"var": "content_id",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -70,6 +76,11 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.metadata`",
+								},
+								"parts": []any{
+									"tokenizer",
+									"token",
+									"{content_id}",
 								},
 							},
 						},
@@ -85,6 +96,17 @@ func MakeConfig() map[string]any {
 			},
 		},
 	}
+}
+
+// The plugin definitions the model selected per feature, as []any so a
+// feature package can consume them without core naming its types. Empty
+// when no active feature declares active plugin groups for this target.
+var featurePlugins = map[string][]any{
+}
+
+// FeaturePlugins is the definitions list for one feature's chain.
+func FeaturePlugins(name string) []any {
+	return featurePlugins[name]
 }
 
 var (
