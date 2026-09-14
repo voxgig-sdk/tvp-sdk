@@ -1,5 +1,5 @@
 {
-  "name": "@voxgig-sdk/tvp",
+  "name": "@voxgig-sdk/tvp-sdk",
   "version": "0.0.1",
   "description": "Unofficial generated TypeScript SDK for the TVP public API. Not affiliated with or endorsed by the upstream API provider.",
   "keywords": [

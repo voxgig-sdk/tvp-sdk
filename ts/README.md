@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { TvpSDK } from '@voxgig-sdk/tvp'
+import { TvpSDK } from '@voxgig-sdk/tvp-sdk'
 
 const client = new TvpSDK()
 ```
@@ -397,7 +397,7 @@ tvp/
 Import the SDK from the package root:
 
 ```ts
-import { TvpSDK } from '@voxgig-sdk/tvp'
+import { TvpSDK } from '@voxgig-sdk/tvp-sdk'
 ```
 
 ### Entity state

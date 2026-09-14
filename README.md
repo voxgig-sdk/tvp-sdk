@@ -105,7 +105,7 @@ local result, err = client:Content():load({ content_id = 1 })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/tvp` | publish pending — [install from git tag](https://github.com/voxgig-sdk/tvp-sdk/releases) |
+| TypeScript | `@voxgig-sdk/tvp-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/tvp-sdk/releases) |
 | Python | `voxgig-sdk-tvp` | publish pending — [install from git tag](https://github.com/voxgig-sdk/tvp-sdk/releases) |
 | PHP | `voxgig-sdk/tvp` | publish pending — [install from git tag](https://github.com/voxgig-sdk/tvp-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/tvp-sdk/go` | `go get github.com/voxgig-sdk/tvp-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:Content():load({ content_id = 1 })
 ### TypeScript
 
 ```ts
-import { TvpSDK } from '@voxgig-sdk/tvp'
+import { TvpSDK } from '@voxgig-sdk/tvp-sdk'
 
 const client = new TvpSDK()
 
