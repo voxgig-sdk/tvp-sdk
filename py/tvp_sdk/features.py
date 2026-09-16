@@ -1,12 +1,18 @@
 # Tvp SDK feature factory
 
 from tvp_sdk.feature.base_feature import TvpBaseFeature
+from tvp_sdk.feature.ratelimit_feature import TvpRatelimitFeature
+from tvp_sdk.feature.retry_feature import TvpRetryFeature
 from tvp_sdk.feature.test_feature import TvpTestFeature
+from tvp_sdk.feature.timeout_feature import TvpTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: TvpBaseFeature(),
+    "ratelimit": lambda: TvpRatelimitFeature(),
+    "retry": lambda: TvpRetryFeature(),
     "test": lambda: TvpTestFeature(),
+    "timeout": lambda: TvpTimeoutFeature(),
 }
 
 

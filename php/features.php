@@ -4,7 +4,10 @@ declare(strict_types=1);
 // Tvp SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class TvpFeatures
@@ -14,8 +17,14 @@ class TvpFeatures
         switch ($name) {
             case "base":
                 return new TvpBaseFeature();
+            case "ratelimit":
+                return new TvpRatelimitFeature();
+            case "retry":
+                return new TvpRetryFeature();
             case "test":
                 return new TvpTestFeature();
+            case "timeout":
+                return new TvpTimeoutFeature();
             default:
                 return new TvpBaseFeature();
         }
@@ -31,7 +40,10 @@ class TvpFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;
