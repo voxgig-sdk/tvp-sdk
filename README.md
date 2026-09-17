@@ -105,12 +105,12 @@ local result, err = client:Content():load({ content_id = 1 })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/tvp-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/tvp-sdk/releases) |
-| Python | `voxgig-sdk-tvp` | publish pending — [install from git tag](https://github.com/voxgig-sdk/tvp-sdk/releases) |
-| PHP | `voxgig-sdk/tvp` | publish pending — [install from git tag](https://github.com/voxgig-sdk/tvp-sdk/releases) |
+| TypeScript | `@voxgig-sdk/tvp-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/tvp-sdk/tags) |
+| Python | `voxgig-sdk-tvp` | publish pending — [install from git tag](https://github.com/voxgig-sdk/tvp-sdk/tags) |
+| PHP | `voxgig-sdk/tvp` | publish pending — [install from git tag](https://github.com/voxgig-sdk/tvp-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/tvp-sdk/go` | `go get github.com/voxgig-sdk/tvp-sdk/go@latest` |
-| Ruby | `voxgig-sdk-tvp` | publish pending — [install from git tag](https://github.com/voxgig-sdk/tvp-sdk/releases) |
-| Lua | `voxgig-sdk-tvp` | publish pending — [install from git tag](https://github.com/voxgig-sdk/tvp-sdk/releases) |
+| Ruby | `voxgig-sdk-tvp` | publish pending — [install from git tag](https://github.com/voxgig-sdk/tvp-sdk/tags) |
+| Lua | `voxgig-sdk-tvp` | publish pending — [install from git tag](https://github.com/voxgig-sdk/tvp-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/tvp-sdk/go-cli` | `go install github.com/voxgig-sdk/tvp-sdk/go-cli/cmd/tvp@latest` |
 | Go MCP server | `github.com/voxgig-sdk/tvp-sdk/go-mcp` | `go get github.com/voxgig-sdk/tvp-sdk/go-mcp@latest` |
 
